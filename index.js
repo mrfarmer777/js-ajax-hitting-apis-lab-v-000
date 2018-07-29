@@ -17,12 +17,12 @@ function showRepositories(){
 function getCommits(el){
   const repoName=el.dataset.repo;
   const req=new XMLHttpRequest();
-  req.addEventListener("load",showCommits);
+  req.addEventListener("load",displayCommits);
   req.open("GET","https://api.github.com/users/"+repoName+"/commits");
   req.send();
 }
 
-function showCommits(){
+function displayCommits(){
   let dest=document.getElementById('commits');
   const commits=JSON.pars(this.responseText);
   console.log(commits);
