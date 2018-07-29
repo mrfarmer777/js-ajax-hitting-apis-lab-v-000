@@ -27,6 +27,8 @@ function displayCommits(){
   const commits=JSON.parse(this.responseText);
   console.log(commits);
   const output=`<ul>${commits.map(c=>"<li>"+c.name+" - <a href='#' data-author='"+c.author+"' onclick='getCommits(this)'>Get Commits</a></li>").join("")}</ul>`;
+  
+  dest.innerHTML=output;
 }
 
 
