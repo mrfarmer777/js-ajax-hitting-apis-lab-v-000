@@ -44,7 +44,7 @@ function displayBranches(){
   let dest=document.getElementById('details');
   const branches=JSON.parse(this.responseText);
   console.log(branches);
-  const output=`<ul>${branches.map(b=>"<li>"+b.author.login+"</li>")}`;
+  const output=`<ul>${branches.map(b=>"<li>"+b.name+"</li>")}`;
   dest.innerHTML=output;
 }
 
