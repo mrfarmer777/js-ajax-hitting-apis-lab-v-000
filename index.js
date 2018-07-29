@@ -10,7 +10,7 @@ function displayRepositories(){
   let dest=document.getElementById("repositories");
   const repos=JSON.parse(this.responseText);
   console.log(repos.length);
-  const output=`<ul>${repos.map(r=>"<li>"+r.name+" - <a href='#' data-username='"+r.owner.login+"'data-repository='"+r.name+"' onclick='getCommits(this)'>"+r.html_url+"</a></li>").join("")}</ul>`;
+  const output=`<ul>${repos.map(r=>"<li>"+r.name+" - <a href='#' data-username='"+r.owner.login+"'data-repository='"+r.name+"' onclick='getCommits(this)'>"+r.html_url+"</a> - <a href='#' data-username='"+r.owner.login+"'data-repository='"+r.name+"'onclick='getBranches(this)'>Get Branches</li>").join("")}</ul>`;
   dest.innerHTML=output;
 }
 
