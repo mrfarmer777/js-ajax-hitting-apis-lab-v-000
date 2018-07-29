@@ -10,13 +10,13 @@ function displayRepositories(){
   let dest=document.getElementById("repositories");
   const repos=JSON.parse(this.responseText);
   console.log(repos.length);
-  const output=`<ul>${repos.map(r=>"<li>"+r.name+" - <a href='#' data-user='"+r.owner.login+"'data-repo='"+r.name+"' onclick='getCommits(this)'>"+r.html_url+"</a></li>").join("")}</ul>`;
+  const output=`<ul>${repos.map(r=>"<li>"+r.name+" - <a href='#' data-username='"+r.owner.login+"'data-repository='"+r.name+"' onclick='getCommits(this)'>"+r.html_url+"</a></li>").join("")}</ul>`;
   dest.innerHTML=output;
 }
 
 function getCommits(el){
-  const repoName=el.dataset.repo;
-  const userName=el.dataset.user;
+  const repoName=el.dataset.repository;
+  const userName=el.dataset.username;
   const req=new XMLHttpRequest();
   req.addEventListener("load",displayCommits);
   req.open("GET","https://api.github.com/repos/"+userName+"/"+repoName+"/commits");
