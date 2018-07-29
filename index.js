@@ -26,7 +26,7 @@ function displayCommits(){
   let dest=document.getElementById('details');
   const commits=JSON.parse(this.responseText);
   console.log(commits);
-  const output=`<ul>${commits.map(c=>"<li>"+c.author.login+", "+c.author+" - <a href='#' data-author='"+c.message+"' onclick='getCommits(this)'>Get Commits</a></li>").join("")}</ul>`;
+  const output=`<ul>${commits.map(c=>"<li>"+c.author.login+", "+c.commit.author.name+" - <a href='#' data-author='"+c.message+"' onclick='getCommits(this)'>Get Commits</a></li>").join("")}</ul>`;
   
   dest.innerHTML=output;
 }
