@@ -24,7 +24,7 @@ function getCommits(el){
 
 function displayCommits(){
   let dest=document.getElementById('details');
-  const commits=JSON.pars(this.responseText);
+  const commits=JSON.parse(this.responseText);
   console.log(commits);
   const output=`<ul>${commits.map(c=>"<li>"+c.name+" - <a href='#' data-author='"+c.author+"' onclick='getCommits(this)'>Get Commits</a></li>").join("")}</ul>`;
 }
