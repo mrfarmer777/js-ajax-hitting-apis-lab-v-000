@@ -9,6 +9,7 @@ function getRepositories(){
 function showRepositories(){
   let dest=document.getElementById("repositories");
   const repos=JSON.parse(this.responseText);
+  console.log(repos.length);
   const output=`<ul>${repos.map(r=>"<li>"+r.name+" - <a href='#' data-repo='"+r.name+"' onclick='getCommits(this)>Get Commits</a><li>").join("")}`;
   dest.innerHTML=output;
 }
