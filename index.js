@@ -28,8 +28,16 @@ function displayCommits(){
   const commits=JSON.parse(this.responseText);
   console.log(commits);
   const output=`<ul>${commits.map(c=>"<li>"+c.author.login+", ("+c.commit.author.name+"): "+c.commit.message+" - <a href='#' data-author='"+"' onclick='getCommits(this)'>Get Commits</a></li>").join("")}</ul>`;
-  
   dest.innerHTML=output;
+}
+
+function getBranches(el){
+  const repoName=el.dataset.repository;
+  const userName=el.dataset.username;
+  const req=new XMLHttpRequest();
+  req.addEventListener("load",displayCommits);
+  req.open("GET","https://api.github.com/repos/"+userName+"/"+repoName+"/branches");
+  req.send();
 }
 
 
