@@ -23,7 +23,7 @@ function getCommits(el){
 }
 
 function displayCommits(){
-  let dest=document.getElementById('commits');
+  let dest=document.getElementById('details');
   const commits=JSON.pars(this.responseText);
   console.log(commits);
   const output=`<ul>${commits.map(r=>"<li>"+r.name+" - <a href='#' data-repo='"+r.full_name+"' onclick='getCommits(this)'>Get Commits</a></li>").join("")}</ul>`;
