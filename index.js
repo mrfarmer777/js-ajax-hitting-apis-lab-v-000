@@ -15,11 +15,18 @@ function showRepositories(){
 }
 
 function getCommits(el){
-  const repoName=el.dataset.repo
+  const repoName=el.dataset.repo;
   const req=new XMLHttpRequest();
   req.addEventListener("load",showCommits);
   req.open("GET","https://api.github.com/users/"+repoName+"/commits");
+  req.send();
 }
 
+function showCommits(){
+  let dest=document.getElementById('commits');
+  const commits=JSON.pars(this.responseText);
+  console.log(commits);
+  const output=`<ul>${commits.map(r=>"<li>"+r.name+" - <a href='#' data-repo='"+r.full_name+"' onclick='getCommits(this)'>Get Commits</a></li>").join("")}</ul>`;
+}
 
 
